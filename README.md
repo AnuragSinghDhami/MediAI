@@ -1,5 +1,3 @@
-Of course! Here is a comprehensive README file for your project.
-
 AI-Powered Health Insurance Claim Adjudication 🧑‍⚕️📄✨
 This project is a Flask web application that uses Google's Gemini Pro model and a Retrieval-Augmented Generation (RAG) pipeline to automate the verification and adjudication of health insurance claims.
 
@@ -60,7 +58,7 @@ Configuration: python-dotenv
 Follow these steps to get the project running locally.
 
 ### 1. Clone the Repository
-Bash
+
 
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
@@ -69,20 +67,20 @@ It's highly recommended to use a virtual environment to manage dependencies.
 
 Linux/macOS:
 
-Bash
+
 
 python3 -m venv venv
 source venv/bin/activate
 Windows:
 
-Bash
+
 
 python -m venv venv
 .\venv\Scripts\activate
 ### 3. Install Dependencies
 Create a requirements.txt file with the following content:
 
-Plaintext
+
 
 # requirements.txt
 flask
@@ -96,13 +94,12 @@ PyPDF2
 pypdf
 Then, install the packages:
 
-Bash
+
 
 pip install -r requirements.txt
 ### 4. Set Up Environment Variables
 Create a file named .env in the root of the project directory and add your Google Gemini API key:
 
-Code snippet
 
 # .env
 GEMINI_API_KEY="YOUR_API_KEY_HERE"
@@ -114,7 +111,7 @@ Place your health insurance policy documents (in PDF format) inside the document
 ## Usage
 Run the Flask Application:
 
-Bash
+
 
 python app.py
 (Assuming your script is named app.py)
@@ -133,14 +130,3 @@ Click the "Process Claim" button.
 View the Result:
 The application will process the request and display the detailed adjudication report on the result page.
 
-## Project Structure
-.
-├── app.py              # Main Flask application logic
-├── templates/
-│   ├── index.html      # Main claim submission form
-│   └── result.html     # Page to display the adjudication result
-├── documents/
-│   └── policy_doc.pdf  # <--- Add your insurance policy PDFs here
-├── faiss_index/        # <--- Generated FAISS index is cached here
-├── .env                # <--- Your API key and other secrets
-└── requirements.txt    # Project dependencies
