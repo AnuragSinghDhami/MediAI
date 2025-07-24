@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Claim Result</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm fixed w-full top-0 left-0 z-50">
+    <nav class="flex items-center justify-between px-6 py-4 lg:px-12">
+      <a href="#" class="flex items-center gap-2">
+        <img class="h-12 w-auto animate-pulse" src="{{ url_for('static', filename='health-insurance.png') }}" alt="Company Logo">
+        <span class="text-xl font-bold text-gray-800 hidden sm:inline">Health Insurance</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 pt-28 px-4 sm:px-8">
+    <!-- Gradient Background -->
+    <div class="relative isolate">
+      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-72">
+        <div
+          class="relative left-1/2 -translate-x-1/2 aspect-[1155/678] w-[36rem] rotate-[30deg] bg-gradient-to-tr from-blue-300 to-blue-500 opacity-30 sm:w-[70rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="mx-auto max-w-3xl bg-white rounded-xl shadow-lg p-8 border border-blue-100">
+        <div class="mb-8 text-center">
+          <h2 class="text-lg font-semibold text-gray-700 bg-blue-50 px-4 py-2 rounded-full inline-block">Insurance Claim Result</h2>
+        </div>
+
+        <p class="text-lg text-gray-600 mb-6 text-center">Your insurance outcomes are as follows...</p>
+
+        <div class="space-y-4">
+          <p class="text-gray-700">Patient Name: <span class="font-semibold">{{name}}</span></p>
+          <p class="text-gray-700">Patient Address: <span class="font-semibold">{{address}}</span></p>
+          <p class="text-gray-700">Claim Type: <span class="font-semibold">{{claim_type}}</span></p>
+          <p class="text-gray-700">Claim Reason: <span class="font-semibold">{{claim_reason}}</span></p>
+          <p class="text-gray-700">Medical Facility: <span class="font-semibold">{{medical_facility}}</span></p>
+          <p class="text-gray-700">Total Claim Amount: <span class="font-semibold">{{total_claim_amount}}</span></p>
+          <p class="text-gray-700">Description: <span class="font-semibold">{{description}}</span></p>
+          <p class="text-gray-700 text-center">{{ output | safe }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-10 text-center">
+      <a href="./"
+        class="inline-flex items-center px-6 py-2 bg-blue-600 text-white text-lg font-medium rounded-lg shadow hover:bg-blue-700 transition">
+        ← Back
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

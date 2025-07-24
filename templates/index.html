@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Claims Processing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-blue-100 text-gray-800 font-sans">
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+    <div class="relative isolate bg-gradient-to-b from-blue-200/40 via-white to-white">
+        <div class="mx-auto max-w-7xl px-6 pb-24 pt-16 sm:pt-32 lg:grid lg:grid-cols-2 lg:gap-10 lg:px-12 lg:py-40">
+            <!-- Left Content -->
+            <div class="max-w-2xl">
+                <div class="flex items-center space-x-4">
+                    <img class="h-12 animate-pulse" src="{{ url_for('static', filename='health-insurance.png') }}" alt="Company Logo">
+
+                    <span class="text-gray-700 font-medium flex items-center gap-2">
+                        MediClaim | Insurance Claim Service
+                        <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </div>
+                <h1 class="mt-10 text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">AI-powered Claims Processing</h1>
+                <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                    Simplify your claims process with our efficient, AI-driven service. We ensure a smooth and hassle-free experience during uncertain times.
+                </p>
+            </div>
+
+            <!-- Right Content -->
+            <div class="mt-16 lg:mt-0 flex justify-center relative">
+                <div class="bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 p-6 rounded-3xl shadow-xl flex flex-col items-center transform hover:scale-105 transition duration-500">
+                    <img src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1711259786/uybnwvwbfyyq8ej8ziz0.gif" class="rounded-xl drop-shadow-lg" width="250" alt="">
+                    <p class="mt-6 text-white text-lg sm:text-2xl font-bold tracking-wide text-center drop-shadow-lg">
+                        Quick, Reliable, Hassle-Free <br> PROCESS
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Claim Form Section -->
+<section class="py-16 bg-gradient-to-t from-blue-100/40 to-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Info Card -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900">Insurance Claims</h2>
+                <p class="mt-3 text-md text-gray-600">Please provide accurate information to verify your claim.</p>
+                <img src="{{ url_for('static', filename='doctors-office.gif') }}" class="mt-6 rounded-xl shadow-lg" width="300" alt="">
+            </div>
+
+            <!-- Claim Form -->
+            <form action="" method="post" enctype="multipart/form-data" class="md:col-span-2 backdrop-blur-xl bg-white/70 shadow-lg rounded-2xl p-8 border border-gray-200">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Submit claim for</label>
+                        <input type="text" id="name" name="name" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2" placeholder="Enter patient name">
+                    </div>
+
+                    <!-- Claim Type -->
+                    <div>
+                        <label for="claim_type" class="block text-sm font-medium text-gray-700">Claim item</label>
+                        <select id="claim_type" name="claim_type" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2">
+                            <option selected disabled>Please Select</option>
+                            <option>General Practitioner</option>
+                            <option>Specialist</option>
+                            <option>Prescribed Medication</option>
+                            <option>Diagnostics & Lab Tests</option>
+                            <option>Health Check-up</option>
+                            <option>Physiotherapist</option>
+                            <option>Chiropractor</option>
+                            <option>Dental Consultation</option>
+                            <option>Psychiatric Treatments</option>
+                        </select>
+                    </div>
+
+                    <!-- Claim Reason -->
+                    <div>
+                        <label for="claim_reason" class="block text-sm font-medium text-gray-700">Claim Reason</label>
+                        <input type="text" id="claim_reason" name="claim_reason" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2" placeholder="Enter reason">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="sm:col-span-2">
+                        <label for="address" class="block text-sm font-medium text-gray-700">Patient Address</label>
+                        <textarea id="address" name="address" rows="2" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2" placeholder="Enter address"></textarea>
+                    </div>
+
+                    <!-- Date -->
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700">Date of treatment</label>
+                        <input type="date" id="date" name="date" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2">
+                    </div>
+
+                    <!-- Medical Facility -->
+                    <div>
+                        <label for="medical_facility" class="block text-sm font-medium text-gray-700">Medical Facility</label>
+                        <input type="text" id="medical_facility" name="medical_facility" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2">
+                    </div>
+
+                    <!-- Claim Amount -->
+                    <div>
+                        <label for="total_claim_amount" class="block text-sm font-medium text-gray-700">Claim Amount</label>
+                        <input type="number" id="total_claim_amount" name="total_claim_amount" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2" placeholder="$">
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="sm:col-span-2 bg-blue-100 border border-blue-300 text-blue-800 p-4 rounded-xl text-sm">
+                        <p class="font-semibold">📝 Make sure your payment receipt includes:</p>
+                        <ul class="list-disc ml-6 mt-2">
+                            <li>Patient's name</li>
+                            <li>Treatment date</li>
+                            <li>Diagnosis</li>
+                            <li>Breakdown of charges</li>
+                        </ul>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                        <label for="medical_bill" class="block text-sm font-medium text-gray-700">Consultation Receipt</label>
+                        <input type="file" id="medical_bill" name="medical_bill" class="mt-2 w-full text-sm text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    </div>
+
+                    <!-- Description -->
+                    <div class="sm:col-span-2">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <input type="text" id="description" name="description" class="mt-2 w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm p-2" placeholder="Enter additional details">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-8">
+                    <button type="submit" class="w-full sm:w-40 rounded-lg bg-blue-600 py-3 text-white font-semibold shadow-md hover:bg-blue-500 hover:scale-105 transition duration-300">
+                        Submit Claim
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
