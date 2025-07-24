@@ -8,7 +8,7 @@ The application allows a user to submit claim details and a medical bill. The AI
 ## ## Screenshots
 
 1.  **Landing Page**:
-    ![Landing Page Screenshot](MediAI/static/photo1.png)
+    ![Landing Page Screenshot](https://github.com/AnuragSinghDhami/MediAI/blob/main/static/photo1.png)
     *This is the main page where users can access the claim submission form.*
 
 2.  **Claim Submission Form**:
