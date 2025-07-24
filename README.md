@@ -1,4 +1,5 @@
-AI-Powered Health Insurance Claim Adjudication 🧑‍⚕️📄✨
+## MediClaim🧑‍⚕️📄✨ <br>
+ AI-Powered Health Insurance Claim Adjudication 🧑‍⚕️📄✨ <br>
 This project is a Flask web application that uses Google's Gemini Pro model and a Retrieval-Augmented Generation (RAG) pipeline to automate the verification and adjudication of health insurance claims.
 
 The application allows a user to submit claim details and a medical bill. The AI then analyzes this information against a knowledge base of insurance policy documents to determine if the claim should be approved or rejected, providing a detailed report of its findings.
