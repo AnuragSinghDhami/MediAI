@@ -1,0 +1,146 @@
+Of course! Here is a comprehensive README file for your project.
+
+AI-Powered Health Insurance Claim Adjudication 🧑‍⚕️📄✨
+This project is a Flask web application that uses Google's Gemini Pro model and a Retrieval-Augmented Generation (RAG) pipeline to automate the verification and adjudication of health insurance claims.
+
+The application allows a user to submit claim details and a medical bill. The AI then analyzes this information against a knowledge base of insurance policy documents to determine if the claim should be approved or rejected, providing a detailed report of its findings.
+
+***
+
+## Features
+🤖 Intelligent Claim Analysis: Leverages the Gemini LLM to understand and reason about claim data, medical bills, and policy rules.
+
+📚 RAG for Policy Verification: Uses a FAISS vector store to create a searchable knowledge base from your insurance policy PDFs. This allows the AI to check claims against specific policy exclusions.
+
+📄 PDF Data Extraction: Automatically extracts text from uploaded medical bills (.pdf) and uses Gemini's JSON mode to pull structured data (like diagnosis and total expense).
+
+✅ Automated Mismatch Detection: Cross-references user-submitted data with extracted bill information to check for inconsistencies in names, amounts, and diagnoses.
+
+🖥️ Simple Web Interface: A clean and simple UI built with Flask and HTML for submitting claims and viewing results.
+
+📋 Structured Reporting: Generates a detailed, HTML-formatted report outlining the final verdict, reasons for the decision, and a summary of the analysis.
+
+## How It Works
+The application follows a systematic process to adjudicate a claim:
+
+Vector Store Indexing (First Run): On startup, the application checks for a local FAISS vector store. If one doesn't exist, it loads all PDF files from the /documents directory, splits them into manageable chunks, generates embeddings using Gemini's text-embedding-004 model, and saves the resulting vector index in the /faiss_index folder for future use.
+
+Claim Submission: A user navigates to the web UI, fills in their claim information (name, claim type, amount), and uploads the corresponding medical bill in PDF format.
+
+Bill Information Extraction: The backend receives the data. It first extracts all text from the uploaded PDF. Then, it sends this raw text to a Gemini model configured for JSON output, asking it to specifically extract the patient's primary diagnosis and the total billed amount.
+
+Contextual Retrieval (RAG): The system queries the FAISS vector store to find the most relevant information regarding "general exclusions" from the indexed policy documents.
+
+LLM Adjudication: A detailed, multi-part prompt is constructed and sent to the gemini-2.5-flash model. This prompt includes:
+
+Instructions: A clear set of rules on how to analyze the claim.
+
+Retrieved Context: The "general exclusions" text retrieved from the vector store.
+
+User Data: The information submitted via the web form.
+
+Bill Data: The diagnosis and amount extracted from the medical bill.
+
+Result Generation: The LLM processes all the provided information, makes a final "Accept" or "Reject" decision based on the rules, and generates a structured report explaining its reasoning. This report is then formatted and displayed to the user on the results page.
+
+## Technology Stack
+Backend: Flask
+
+LLM & Embeddings: Google Gemini (gemini-2.5-flash, text-embedding-004) via google-generativeai
+
+RAG & Orchestration: LangChain
+
+Vector Store: FAISS (faiss-cpu)
+
+PDF Processing: PyPDF2
+
+Configuration: python-dotenv
+
+## Setup and Installation
+Follow these steps to get the project running locally.
+
+### 1. Clone the Repository
+Bash
+
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+### 2. Create and Activate a Virtual Environment
+It's highly recommended to use a virtual environment to manage dependencies.
+
+Linux/macOS:
+
+Bash
+
+python3 -m venv venv
+source venv/bin/activate
+Windows:
+
+Bash
+
+python -m venv venv
+.\venv\Scripts\activate
+### 3. Install Dependencies
+Create a requirements.txt file with the following content:
+
+Plaintext
+
+# requirements.txt
+flask
+python-dotenv
+google-generativeai
+langchain-google-genai
+langchain
+langchain-community
+faiss-cpu
+PyPDF2
+pypdf
+Then, install the packages:
+
+Bash
+
+pip install -r requirements.txt
+### 4. Set Up Environment Variables
+Create a file named .env in the root of the project directory and add your Google Gemini API key:
+
+Code snippet
+
+# .env
+GEMINI_API_KEY="YOUR_API_KEY_HERE"
+You can get an API key from Google AI Studio.
+
+### 5. Add Policy Documents
+Place your health insurance policy documents (in PDF format) inside the documents folder. The application will automatically process any .pdf files it finds there.
+
+## Usage
+Run the Flask Application:
+
+Bash
+
+python app.py
+(Assuming your script is named app.py)
+
+Open the Web Interface:
+Navigate to http://127.0.0.1:8081 in your web browser.
+
+Submit a Claim:
+
+Fill out the form with the patient and claim details.
+
+Upload the corresponding medical bill (must be a PDF).
+
+Click the "Process Claim" button.
+
+View the Result:
+The application will process the request and display the detailed adjudication report on the result page.
+
+## Project Structure
+.
+├── app.py              # Main Flask application logic
+├── templates/
+│   ├── index.html      # Main claim submission form
+│   └── result.html     # Page to display the adjudication result
+├── documents/
+│   └── policy_doc.pdf  # <--- Add your insurance policy PDFs here
+├── faiss_index/        # <--- Generated FAISS index is cached here
+├── .env                # <--- Your API key and other secrets
+└── requirements.txt    # Project dependencies
