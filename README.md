@@ -5,7 +5,7 @@ The application allows a user to submit claim details and a medical bill. The AI
 
 ***
 
-## ## Screenshots
+ ## Screenshots
 
 1.  **Landing Page**: <br>
     *This is the main page where users can access the claim submission form.* <br>
