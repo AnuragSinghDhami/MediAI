@@ -90,30 +90,34 @@ Follow these steps to get the project running locally.
 
 ### 1. Clone the Repository
 
-
+```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+```
 ### 2. Create and Activate a Virtual Environment
 It's highly recommended to use a virtual environment to manage dependencies.
 
 Linux/macOS:
 
 
-
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 Windows:
 
 
-
+```bash
 python -m venv venv
 .\venv\Scripts\activate
+```
 ### 3. Install Dependencies
 Create a requirements.txt file with the following content:
 
 
 
 # requirements.txt
+```bash
 flask
 python-dotenv
 google-generativeai
@@ -123,17 +127,21 @@ langchain-community
 faiss-cpu
 PyPDF2
 pypdf
+```
 Then, install the packages:
 
 
-
+```bash
 pip install -r requirements.txt
+```
 ### 4. Set Up Environment Variables
 Create a file named .env in the root of the project directory and add your Google Gemini API key:
 
 
 # .env
+```bash
 GEMINI_API_KEY="YOUR_API_KEY_HERE"
+```
 You can get an API key from Google AI Studio.
 
 ### 5. Add Policy Documents
@@ -143,9 +151,10 @@ Place your health insurance policy documents (in PDF format) inside the document
 Run the Flask Application:
 
 
-
+```bash
 python app.py
 (Assuming your script is named app.py)
+```
 
 Open the Web Interface:
 Navigate to http://127.0.0.1:8081 in your web browser.
