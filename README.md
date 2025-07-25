@@ -7,7 +7,7 @@ The application allows a user to submit claim details and a medical bill. The AI
 ***
 
 ## live link <br>
-(https://mediclaim-c88t.onrender.com)
+https://mediclaim-c88t.onrender.com
 
 ***
 
