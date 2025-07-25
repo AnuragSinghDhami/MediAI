@@ -235,7 +235,7 @@ def process_claim() -> str:
 
 # ------------------------------ MAIN -----------------------------------
 
-if __name__ == "__main__":
-    # Initialize the vector store on startup to avoid delays on the first request.
-    get_vectorstore()
-    app.run(host="0.0.0.0", port=8081, debug=True)
+# if __name__ == "__main__":
+#     # Initialize the vector store on startup to avoid delays on the first request.
+#     get_vectorstore()
+#     app.run(host="0.0.0.0", port=8081, debug=True)
